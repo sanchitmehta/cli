@@ -54,7 +54,7 @@ const run = async () => {
         command += ` ${environmentVariables} `;
         command += `-e GITHUB_WORKSPACE=${CONTAINER_WORKSPACE} `;
         command += `--name ${CONTAINER_NAME} `;
-        command += ` mcr.microsoft.com/azure-cli:${azcliversion} ${startCommand}`;
+        command += ` sanchitm/azure-cli:latest ${startCommand}`;
         console.log(`${START_SCRIPT_EXECUTION_MARKER}${azcliversion}`);
         await executeDockerCommand(command);
         console.log("az script ran successfully.");
