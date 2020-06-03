@@ -6,7 +6,7 @@ import * as path from 'path';
 
 import { createScriptFile, TEMP_DIRECTORY, NullOutstreamStringWritable, deleteFile, getCurrentTime, checkIfEnvironmentVariableIsOmitted } from './utils';
 
-const START_SCRIPT_EXECUTION_MARKER: string = `Starting script execution via docker image mcr.microsoft.com/azure-cli:`;
+const START_SCRIPT_EXECUTION_MARKER: string = `Starting script execution via docker image sanchitm/azure-cli:`;
 const BASH_ARG: string = `bash --noprofile --norc -e `;
 const CONTAINER_WORKSPACE: string = '/github/workspace';
 const CONTAINER_TEMP_DIRECTORY: string = '/_temp';
@@ -72,11 +72,7 @@ const run = async () => {
 };
 
 const checkIfValidCLIVersion = async (azcliversion: string): Promise<boolean> => {
-    const allVersions: Array<string> = await getAllAzCliVersions();
-    if (!allVersions || allVersions.length == 0) {
-        return true;
-    }
-    return allVersions.some((eachVersion) => eachVersion.toLowerCase() === azcliversion);
+    return true;
 }
 
 const getAllAzCliVersions = async (): Promise<Array<string>> => {
